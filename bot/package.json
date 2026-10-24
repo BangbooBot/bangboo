@@ -1,0 +1,56 @@
+{
+  "name": "bot",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "check": "tsc --noEmit && echo ✔ Ok",
+    "build": "tsc",
+    "dev": "bun --env-file=.env ./src/index.ts",
+    "dev:dev": "bun --env-file=.env.dev ./src/index.ts",
+    "watch": "bun --watch --env-file=.env ./src/index.ts",
+    "watch:dev": "bun --watch --env-file=.env.dev ./src/index.ts",
+    "start": "bun --env-file=.env .",
+    "start:dev": "bun --env-file=.env.dev ."
+  },
+  "dependencies": {
+    "@constatic/base": "latest",
+    "@magicyan/discord": "latest",
+    "chalk": "latest",
+    "discord.js": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/bun": "latest"
+  },
+  "imports": {
+    "#env": [
+      "./build/env.js"
+    ],
+    "#base": [
+      "./build/discord/index.js"
+    ],
+    "#functions": [
+      "./build/functions/index.js"
+    ],
+    "#database": [
+      "./build/database/index.js"
+    ],
+    "#server": [
+      "./build/server/index.js"
+    ],
+    "#menus": [
+      "./build/menus/index.js"
+    ],
+    "#tools": [
+      "./build/tools/index.js"
+    ],
+    "#lib/*": [
+      "./build/lib/*"
+    ],
+    "#shared/*": [
+      "./build/shared/*"
+    ]
+  },
+  "baseVersion": "1.5.9"
+}

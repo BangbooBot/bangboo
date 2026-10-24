@@ -1,0 +1,10 @@
+{
+  "name": "bangboo-frontend",
+  "private": true,
+  "workspaces": [
+    "frontend/*",
+    "backend/*",
+    "bot/*",
+    "shared/*"
+  ]
+}

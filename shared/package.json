@@ -1,0 +1,24 @@
+{
+  "name": "bangboo-shared",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "bun check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pg": "latest",
+    "drizzle-kit": "latest",
+    "tsx": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "drizzle-orm": "latest",
+    "pg": "latest",
+    "zod": "latest"
+  }
+}
