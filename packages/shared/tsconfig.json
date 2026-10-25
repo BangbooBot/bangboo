@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "types": ["bun"],
+        // Path mapping Options
+        "paths": {
+            "#env": ["./src/env.ts"],
+            "#dtos": ["./src/dtos/index.ts"],
+            "#lib": ["./src/lib/index.ts"],
+            "#db": ["./src/db/index.ts"],
+            "#db-context": ["./src/db/context.ts"],
+            "#auth": ["./src/lib/auth.ts"]
+        }
+    },
+    // Include and Exclude Options
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}

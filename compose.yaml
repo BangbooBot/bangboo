@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: bangboo-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: bangboo
+      POSTGRES_PASSWORD: bangboo
+      POSTGRES_DB: bangboo
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: bangboo-pgadmin
+    restart: unless-stopped
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@bangboo.com
+      PGADMIN_DEFAULT_PASSWORD: bangboo
+    depends_on:
+      - db

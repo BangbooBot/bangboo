@@ -1,10 +1,7 @@
 {
-  "name": "bangboo-frontend",
+  "name": "bangboo",
   "private": true,
   "workspaces": [
-    "frontend/*",
-    "backend/*",
-    "bot/*",
-    "shared/*"
+    "packages/*"
   ]
 }

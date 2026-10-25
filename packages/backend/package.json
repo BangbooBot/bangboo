@@ -1,0 +1,52 @@
+{
+  "name": "bangboo-backend",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "build": "nest build",
+    "deploy": "nest deploy",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "oxlint --type-aware src/ test/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
+    "test:debug": "vitest --inspect-brk --no-file-parallelism",
+    "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
+    "generate:types": "npx openapi-typescript http://localhost:8080/openapi/v1.json -o src/lib/utils/api.ts"
+  },
+  "dependencies": {
+    "bangboo-shared": "workspace:*",
+    "@nestjs/common": "latest",
+    "@nestjs/core": "latest",
+    "@nestjs/platform-express": "latest",
+    "@thallesp/nestjs-better-auth": "^2.8.0",
+    "reflect-metadata": "latest",
+    "rxjs": "latest"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "latest",
+    "@nestjs/mau": "latest",
+    "@nestjs/schematics": "latest",
+    "@nestjs/testing": "latest",
+    "@types/express": "latest",
+    "@types/node": "latest",
+    "@types/supertest": "latest",
+    "@vitest/coverage-v8": "latest",
+    "oxlint": "latest",
+    "oxlint-tsgolint": "latest",
+    "prettier": "latest",
+    "source-map-support": "latest",
+    "supertest": "latest",
+    "typescript": "^6.0.3",
+    "vite": "latest",
+    "vitest": "latest"
+  }
+}
