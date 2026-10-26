@@ -1,5 +1,5 @@
 import { SetMetadata } from "@nestjs/common";
-import type { Role } from "bangboo-shared/rbac";
+import type { Role } from "bangboo-shared";
 import { ROLES_KEY } from "../auth.constants.js";
 
 /**

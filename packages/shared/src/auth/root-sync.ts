@@ -1,4 +1,4 @@
-import { Role } from "../rbac/role.js";
+import { Role } from "bangboo-shared";
 import { userRepository } from "../db/repositories/index.js";
 
 /**

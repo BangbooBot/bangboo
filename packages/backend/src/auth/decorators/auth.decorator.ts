@@ -1,5 +1,5 @@
 import { applyDecorators, SetMetadata } from "@nestjs/common";
-import type { Role } from "bangboo-shared/rbac";
+import type { Role } from "bangboo-shared";
 import { IS_AUTHENTICATED_KEY } from "../auth.constants.js";
 import { Roles } from "./roles.decorator.js";
 

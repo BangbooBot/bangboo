@@ -7,7 +7,7 @@
  */
 import { relations, sql } from "drizzle-orm";
 import { boolean, check, index, text, uniqueIndex, uuid } from "drizzle-orm/pg-core";
-import { Role } from "../../rbac/role.js";
+import { Role } from "bangboo-shared";
 import { tstz } from "./columns.js";
 import { roleEnum } from "./enums.js";
 import { dbSchema } from "./pg-schema.js";

@@ -1,4 +1,4 @@
-import type { AuthenticatedUser } from "bangboo-shared/dtos";
+import type { AuthenticatedUser } from "./dto/authenticated-user.dto.js";
 import type { Request } from "express";
 
 export type { AuthenticatedUser };

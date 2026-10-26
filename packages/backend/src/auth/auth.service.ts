@@ -1,13 +1,14 @@
 import { Inject, Injectable, InternalServerErrorException, Logger, UnauthorizedException } from "@nestjs/common";
 import type { Auth } from "bangboo-shared/auth";
 import type { UserRepository } from "bangboo-shared/db";
-import { toAuthUserDto, type AuthUserDto, type CallbackQuery } from "bangboo-shared/dtos";
 import { backendEnv as env } from "bangboo-shared/env/backend";
 import type { IncomingHttpHeaders } from "node:http";
 import { InjectUserRepository } from "../database/database.module.js";
 import { AuthCookies } from "./auth-cookies.service.js";
 import { AUTH } from "./auth.constants.js";
 import { resolveFrontendRedirect } from "./redirect.util.js";
+import { CallbackQueryDto } from "./dto/auth-callback-query.dto.js";
+import { AuthUserDto } from "./dto/auth-user.dto.js";
 
 export interface LoginResult {
   /** URL de autorização do Discord (já com `state` e PKCE). */
@@ -67,7 +68,7 @@ export class AuthService {
    * Passo 2 — o Better Auth valida `state`/PKCE, troca o `code`, busca o usuário no Discord,
    * cria/atualiza o usuário e cria a sessão. Aqui só emitimos o access token (JWT) em seguida.
    */
-  async handleCallback(query: CallbackQuery, requestHeaders: IncomingHttpHeaders): Promise<CallbackResult> {
+  async handleCallback(query: CallbackQueryDto, requestHeaders: IncomingHttpHeaders): Promise<CallbackResult> {
     const response = await this.auth.api.callbackOAuth({
       params: { id: "discord" },
       query,
@@ -113,7 +114,16 @@ export class AuthService {
   async getProfile(userId: string): Promise<AuthUserDto> {
     const user = await this.users.findById(userId);
     if (!user) throw new UnauthorizedException("User no longer exists");
-    return toAuthUserDto(user);
+    const authUserDto: AuthUserDto = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      image: user.image,
+      discordId: user.discordId,
+      role: user.role,
+      createdAt: user.createdAt.toISOString(),
+    };
+    return authUserDto;
   }
 
   async getJwks() {

@@ -3,7 +3,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { jwt } from "better-auth/plugins/jwt";
 import { account, db, jwks, session, user, verification } from "../db/index.js";
 import { backendEnv as env } from "../env/backend.js";
-import { DEFAULT_ROLE, Role } from "../rbac/role.js";
+import { DEFAULT_ROLE, Role } from "bangboo-shared";
 import { syncRootRole } from "./root-sync.js";
 
 const DAY = 60 * 60 * 24;

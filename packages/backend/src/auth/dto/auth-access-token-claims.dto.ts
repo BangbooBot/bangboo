@@ -2,7 +2,7 @@ import z from 'zod';
 import { roleSchema } from './auth-role.dto.js';
 import { createZodDto } from 'nestjs-zod/dto';
 
-const accessTokenClaimsSchema = z.object({
+export const accessTokenClaimsSchema = z.object({
   sub: z.string().min(1),
   role: roleSchema,
   discordId: z.string().nullable(),

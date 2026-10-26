@@ -1,5 +1,5 @@
 import { and, eq, inArray } from "drizzle-orm";
-import { Role } from "../../rbac/role.js";
+import { Role } from "bangboo-shared";
 import type { Database } from "../client.js";
 import { account, user } from "../schema/index.js";
 

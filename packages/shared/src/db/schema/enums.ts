@@ -1,4 +1,4 @@
-import { Role } from "../../rbac/role.js";
+import { Role } from "bangboo-shared";
 import { dbSchema } from "./pg-schema.js";
 
 /**
