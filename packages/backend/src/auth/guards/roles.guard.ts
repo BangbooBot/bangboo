@@ -1,6 +1,6 @@
 import { type CanActivate, type ExecutionContext, ForbiddenException, Injectable, UnauthorizedException } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
-import { hasAnyRole, type Role } from "bangboo-shared/rbac";
+import { hasAnyRole, type Role } from "bangboo-shared";
 import { ROLES_KEY } from "../auth.constants.js";
 import type { AuthenticatedRequest } from "../auth.types.js";
 

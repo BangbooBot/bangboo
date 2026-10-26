@@ -1,6 +1,6 @@
 import { ForbiddenException, UnauthorizedException, type ExecutionContext } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
-import { Role } from "bangboo-shared/rbac";
+import { Role } from "bangboo-shared";
 import { Roles } from "../decorators/index.js";
 import { RolesGuard } from "./roles.guard.js";
 
