@@ -1,59 +1,36 @@
 {
   "name": "bangboo-shared",
-  "module": "src/index.ts",
-  "types": "src/index.ts",
-  "type": "module",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
+  "description": "Código compartilhado entre backend e bot: env, banco (Drizzle), auth (Better Auth), RBAC e DTOs.",
   "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
-    }
+    ".": { "types": "./src/index.ts", "default": "./src/index.ts" },
+    "./utils": { "types": "./src/utils/index.ts", "default": "./src/utils/index.ts" },
+    "./env": { "types": "./src/env/index.ts", "default": "./src/env/index.ts" },
+    "./env/bot": { "types": "./src/env/bot.ts", "default": "./src/env/bot.ts" },
+    "./env/backend": { "types": "./src/env/backend.ts", "default": "./src/env/backend.ts" },
+    "./db": { "types": "./src/db/index.ts", "default": "./src/db/index.ts" },
+    "./auth": { "types": "./src/auth/index.ts", "default": "./src/auth/index.ts" }
   },
   "scripts": {
-    "typecheck": "bun check",
-    "lint": "bun fmt",
-    "drizzle:generate": "bun x drizzle-kit generate",
-    "auth:generate": "bun x auth@latest generate"
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "db:generate": "bunx --env-file .env drizzle-kit generate",
+    "db:migrate": "bunx --env-file .env drizzle-kit migrate",
+    "db:push": "bunx --env-file .env drizzle-kit push",
+    "db:studio": "bunx --env-file .env drizzle-kit studio",
+    "auth:schema": "bunx --env-file .env auth@latest generate --config src/auth/auth.ts --output /tmp/better-auth-schema.ts"
+  },
+  "dependencies": {
+    "better-auth": "^1.7.12",
+    "drizzle-orm": "^0.45.4",
+    "postgres": "^3.4.9",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/pg": "latest",
-    "drizzle-kit": "latest",
-    "tsx": "latest"
-  },
-  "peerDependencies": {
+    "drizzle-kit": "^0.31.11",
     "typescript": "^6.0.3"
-  },
-  "dependencies": {
-    "@better-auth/drizzle-adapter": "latest",
-    "@constatic/base": "latest",
-    "better-auth": "latest",
-    "dotenv": "latest",
-    "drizzle-orm": "latest",
-    "pg": "latest",
-    "postgres": "latest",
-    "zod": "latest"
-  },
-  "imports": {
-    "#env": [
-      "./src/env.ts"
-    ],
-    "#db": [
-      "./src/db/index.ts"
-    ],
-    "#db-context": [
-      "./src/db/context.ts"
-    ],
-    "#lib": [
-      "./src/lib/index.ts"
-    ],
-    "#auth": [
-      "./src/lib/auth.ts"
-    ],
-    "#dtos": [
-      "./src/dtos/index.ts"
-    ]
   }
 }

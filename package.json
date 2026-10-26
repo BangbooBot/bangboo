@@ -3,5 +3,14 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "dev:backend": "bun run --cwd packages/backend start:dev",
+    "dev:bot": "bun run --cwd packages/bot watch",
+    "dev:frontend": "bun run --cwd packages/frontend dev",
+    "typecheck": "bun run --cwd packages/shared typecheck && bun run --cwd packages/backend typecheck && bun run --cwd packages/bot typecheck",
+    "test": "bun run --cwd packages/shared test && bun run --cwd packages/backend test",
+    "db:generate": "bun run --cwd packages/shared db:generate",
+    "db:migrate": "bun run --cwd packages/shared db:migrate"
+  }
 }

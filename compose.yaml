@@ -1,23 +1,29 @@
 services:
   db:
-    image: postgres:latest
+    # uuidv7() (usado como default dos ids) exige PostgreSQL 18+
+    image: postgres:18
     container_name: bangboo-db
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     environment:
       POSTGRES_USER: bangboo
       POSTGRES_PASSWORD: bangboo
       POSTGRES_DB: bangboo
+    volumes:
+      - bangboo-db:/var/lib/postgresql
 
   pgadmin:
     image: dpage/pgadmin4
     container_name: bangboo-pgadmin
     restart: unless-stopped
     ports:
-      - "5050:80"
+      - "127.0.0.1:5050:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@bangboo.com
       PGADMIN_DEFAULT_PASSWORD: bangboo
     depends_on:
       - db
+
+volumes:
+  bangboo-db:

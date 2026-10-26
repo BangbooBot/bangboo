@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792951876637,
+      "tag": "0000_moaning_tyger_tiger",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792967387531,
+      "tag": "0001_rbac_jwks_and_schema_fixes",
+      "breakpoints": true
+    }
+  ]
+}
